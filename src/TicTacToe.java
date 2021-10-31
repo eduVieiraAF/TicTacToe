@@ -27,7 +27,7 @@ public class TicTacToe implements ActionListener {
         board.setVisible(true);
 
         textField.setBackground(Color.black);
-        textField.setForeground(new Color(0,158,158));
+        textField.setForeground(new Color(130,197,155));
         textField.setFont(new Font("Comic Sans", Font.BOLD,55));
         textField.setHorizontalAlignment(JLabel.CENTER);
         textField.setText("TIC TAC TOE");
@@ -51,15 +51,55 @@ public class TicTacToe implements ActionListener {
             tittle.add(textField);
             board.add(tittle, BorderLayout.NORTH);
             board.add(button_panel);
+
+            firstTurn();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        for(int i=0;i<9;i++){
+            if (e.getSource()==buttons[i]){
+                if (player1_trun){
+                    if (buttons[i].getText()==""){
+                        buttons[i].setForeground(new Color(255,10,170));
+                        buttons[i].setText("X");
+                        player1_trun = false;
+                        textField.setText("O TURN");
+                        check();
+                    }
+                }
+                else {
+                    if (buttons[i].getText()==""){
+                        buttons[i].setForeground(new Color(10,185,170));
+                        buttons[i].setText("O");
+                        player1_trun = true;
+                        textField.setText("X TURN");
+                        check();
+                    }
+
+                }
+            }
+        }
+
     }
 
     public void firstTurn(){
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(whoseTurn.nextInt(2)==0){
+            player1_trun = true;
+            textField.setText("X TURN");
+        }
+        else {
+            player1_trun = false;
+            textField.setText("O TURN");
+        }
     }
 
     public void check(){
