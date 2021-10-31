@@ -18,7 +18,7 @@ public class TicTacToe implements ActionListener {
     TicTacToe(){
         board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         board.setSize(800,800);
-        board.getContentPane().setBackground(new Color(45,45,45));
+        board.getContentPane().setBackground(new Color(35,35,35));
         board.setLayout(new BorderLayout());
         board.setTitle("TIC TAC TOE");
         board.setResizable(false);
@@ -26,9 +26,9 @@ public class TicTacToe implements ActionListener {
         board.setIconImage(icon.getImage());
         board.setVisible(true);
 
-        textField.setBackground(new Color(45,45,45));
+        textField.setBackground(Color.black);
         textField.setForeground(new Color(0,158,158));
-        textField.setFont(new Font("Ink Free", Font.BOLD,55));
+        textField.setFont(new Font("Comic Sans", Font.BOLD,55));
         textField.setHorizontalAlignment(JLabel.CENTER);
         textField.setText("TIC TAC TOE");
         textField.setOpaque(true);
@@ -36,9 +36,21 @@ public class TicTacToe implements ActionListener {
         tittle.setLayout(new BorderLayout());
         tittle.setBounds(0,0,800,10);
 
-        tittle.add(textField);
-        board.add(tittle);
+        button_panel.setLayout(new GridLayout(3,3));
+        button_panel.setBackground(new Color(60,60,60));
 
+        for (int i=0;i<9;i++) {
+            buttons[i] = new JButton();
+            button_panel.add(buttons[i]);
+            buttons[i].setFocusable(false);
+            buttons[i].setFont(new Font("MV BOLI", Font.BOLD, 120));
+            buttons[i].setBackground(new Color(60,60,60));
+            buttons[i].addActionListener(this);
+
+        }
+            tittle.add(textField);
+            board.add(tittle, BorderLayout.NORTH);
+            board.add(button_panel);
     }
 
     @Override
