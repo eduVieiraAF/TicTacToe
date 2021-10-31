@@ -12,7 +12,7 @@ public class TicTacToe implements ActionListener {
     JPanel button_panel = new JPanel();
     JLabel  textField = new JLabel();
     JButton[] buttons = new JButton[9];
-    boolean player1_trun;
+    boolean player1_turn;
     ImageIcon icon = new ImageIcon("tictactoe.png");
 
     TicTacToe(){
@@ -44,7 +44,7 @@ public class TicTacToe implements ActionListener {
             button_panel.add(buttons[i]);
             buttons[i].setFocusable(false);
             buttons[i].setFont(new Font("MV BOLI", Font.BOLD, 120));
-            buttons[i].setBackground(new Color(60,60,60));
+            buttons[i].setBackground(new Color(50,50,50));
             buttons[i].addActionListener(this);
 
         }
@@ -60,11 +60,11 @@ public class TicTacToe implements ActionListener {
 
         for(int i=0;i<9;i++){
             if (e.getSource()==buttons[i]){
-                if (player1_trun){
+                if (player1_turn){
                     if (buttons[i].getText()==""){
                         buttons[i].setForeground(new Color(255,10,170));
                         buttons[i].setText("X");
-                        player1_trun = false;
+                        player1_turn = false;
                         textField.setText("O TURN");
                         check();
                     }
@@ -73,7 +73,7 @@ public class TicTacToe implements ActionListener {
                     if (buttons[i].getText()==""){
                         buttons[i].setForeground(new Color(10,185,170));
                         buttons[i].setText("O");
-                        player1_trun = true;
+                        player1_turn = true;
                         textField.setText("X TURN");
                         check();
                     }
@@ -93,11 +93,11 @@ public class TicTacToe implements ActionListener {
         }
 
         if(whoseTurn.nextInt(2)==0){
-            player1_trun = true;
+            player1_turn = true;
             textField.setText("X TURN");
         }
         else {
-            player1_trun = false;
+            player1_turn = false;
             textField.setText("O TURN");
         }
     }
