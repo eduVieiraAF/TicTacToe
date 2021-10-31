@@ -44,7 +44,7 @@ public class TicTacToe implements ActionListener {
             button_panel.add(buttons[i]);
             buttons[i].setFocusable(false);
             buttons[i].setFont(new Font("MV BOLI", Font.BOLD, 120));
-            buttons[i].setBackground(new Color(50,50,50));
+            buttons[i].setBackground(new Color(20,20,20));
             buttons[i].addActionListener(this);
 
         }
