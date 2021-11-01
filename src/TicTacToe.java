@@ -162,13 +162,8 @@ public class TicTacToe implements ActionListener {
         buttons[b].setBackground(Color.WHITE);
         buttons[c].setBackground(Color.WHITE);
 
-        for(int i=0;i<9;i++){
+        for(int i=0;i<9;i++) {
             buttons[i].setEnabled(false);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
         textField.setText("X WINS!");
     }
