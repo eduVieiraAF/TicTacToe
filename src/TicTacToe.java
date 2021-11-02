@@ -165,6 +165,13 @@ public class TicTacToe implements ActionListener {
             buttons[i].setEnabled(false);
         }
         textField.setText("X WINS!");
+        int rePlay = JOptionPane.showConfirmDialog(null, "Would you like to go again?","Tic Tac Toe",
+                JOptionPane.YES_NO_OPTION);
+        if (rePlay == 0){
+            new Start();
+        } else {
+            System.exit(0);
+        }
     }
 
     public void oWins(int a, int b, int c){
@@ -176,6 +183,13 @@ public class TicTacToe implements ActionListener {
             buttons[i].setEnabled(false);
         }
         textField.setText("O WINS!");
+        int rePlay = JOptionPane.showConfirmDialog(null, "Would you like to go again?","Tic Tac Toe",
+                JOptionPane.YES_NO_OPTION);
+        if (rePlay == 0){
+            new Start();
+        } else {
+            System.exit(0);
+        }
     }
 }
 
